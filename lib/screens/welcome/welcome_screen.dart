@@ -6,6 +6,8 @@ import 'package:get/get_navigation/src/extension_navigation.dart';
 import 'package:websafe_svg/websafe_svg.dart';
 
 class WelcomeScreen extends StatelessWidget {
+  const WelcomeScreen({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
      
@@ -23,14 +25,14 @@ class WelcomeScreen extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Spacer(flex: 2,),
+                  const Spacer(flex: 2,),
                   Text("Let's Play Quiz,", 
                   style: Theme.of(context).textTheme.headline4!.copyWith(color: Colors.white, 
                   fontWeight: FontWeight.bold
                   ),
                   ),
                   const Text("Enter your information below"),
-                  Spacer(),
+                  const Spacer(),
                   const TextField(
                     decoration: InputDecoration(
                       filled: true,
@@ -42,15 +44,15 @@ class WelcomeScreen extends StatelessWidget {
                     ),
                     ),
                   ),
-                  Spacer(),
+                  const Spacer(),
                   InkWell(
-                    onTap: () => Get.to(QuizScreen()),
+                    onTap: () => Get.to(const QuizScreen()),
                     child: Container(
                       width: double.infinity,
                       alignment: Alignment.center,
-                      padding: EdgeInsets.all(kDefaultPadding * .75),
-                      decoration: BoxDecoration(gradient: kPrimaryGradient, 
-                      borderRadius: BorderRadius.all(Radius.circular(12),
+                      padding: const EdgeInsets.all(kDefaultPadding * .75),
+                      decoration: const BoxDecoration(gradient: kPrimaryGradient, 
+                      borderRadius: const BorderRadius.all(const Radius.circular(12),
                       ),
                       ),
                       child: Text("Start the Quiz!", 
@@ -58,7 +60,7 @@ class WelcomeScreen extends StatelessWidget {
                       ),
                     ),
                   ),
-                  Spacer(flex: 2,),
+                  const Spacer(flex: 2,),
                 ],
                 ),
             ),

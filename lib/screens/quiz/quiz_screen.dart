@@ -15,10 +15,10 @@ class QuizScreen extends StatelessWidget {
         backgroundColor: Colors.transparent,
         elevation: 0,
         actions: [
-          FlatButton(onPressed: _controller.nextQuestion, child: Text("Skip"))
+          FlatButton(onPressed: _controller.nextQuestion, child: const Text("Skip"))
         ],
       ),
-      body: Body(),
+      body: const Body(),
     );
   }
 }
