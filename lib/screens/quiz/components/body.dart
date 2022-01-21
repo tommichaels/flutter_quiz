@@ -1,12 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_quiz/constants.dart';
 import 'package:flutter_quiz/controllers/question_controller.dart';
-import 'package:flutter_quiz/models/Questions.dart';
 import 'package:flutter_quiz/screens/quiz/components/progress_bar.dart';
 import 'package:flutter_quiz/screens/quiz/components/question_card.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
-import 'package:get/get_instance/src/extension_instance.dart';
 import 'package:websafe_svg/websafe_svg.dart';
 
 class Body extends StatelessWidget {
@@ -27,11 +24,11 @@ class Body extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: kDefaultPadding),
+            const Padding(
+              padding: EdgeInsets.symmetric(horizontal: kDefaultPadding),
               child: ProgressBar(),
             ),
-            SizedBox(height: kDefaultPadding,),
+            const SizedBox(height: kDefaultPadding,),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: kDefaultPadding),
               child: Obx(()=> Text.rich(TextSpan(
@@ -44,10 +41,10 @@ class Body extends StatelessWidget {
               ),
               )),
             ),
-            Divider(thickness: 1.5,),
-            SizedBox(height: kDefaultPadding,),
+            const Divider(thickness: 1.5,),
+            const SizedBox(height: kDefaultPadding,),
             Expanded(child: PageView.builder(
-              physics: NeverScrollableScrollPhysics(),
+              physics: const NeverScrollableScrollPhysics(),
               controller: _questionController.pageController,
               onPageChanged: _questionController.updateTheQnNum,
               itemCount: _questionController.questions.length,

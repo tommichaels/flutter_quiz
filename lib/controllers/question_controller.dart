@@ -1,20 +1,20 @@
-import 'package:flutter/animation.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_quiz/models/Questions.dart';
 import 'package:flutter_quiz/screens/score/score_screen.dart';
 import 'package:get/get.dart';
 
+// ignore: deprecated_member_use
 class QuestionController extends GetxController with SingleGetTickerProviderMixin{
 
   late AnimationController _animationController;
   late Animation _animation;
 
-  Animation get animation => this._animation;
+  Animation get animation => _animation;
 
   late PageController _pageController;
-  PageController get pageController => this._pageController;
+  PageController get pageController => _pageController;
 
-  List<Question> _questions = sample_data
+  final List<Question> _questions = sample_data
       .map(
         (question) => Question(
             id: question['id'],
@@ -24,28 +24,28 @@ class QuestionController extends GetxController with SingleGetTickerProviderMixi
       )
       .toList();
 
-  List<Question> get questions => this._questions;
+  List<Question> get questions => _questions;
 
   bool _isAnswered = false;
-  bool get isAnswered => this._isAnswered;
+  bool get isAnswered => _isAnswered;
 
   late int _correctAns;
-  int get correctAns => this._correctAns;
+  int get correctAns => _correctAns;
 
   late int _selectedAns;
-  int get selectedAns => this._selectedAns;
+  int get selectedAns => _selectedAns;
   
   RxInt _questionNunber = 1.obs;
-  RxInt get questionNumber => this._questionNunber;
+  RxInt get questionNumber => _questionNunber;
 
   late int _numOfCorrectAns = 0;
-  int get numOfCorrectAns => this._numOfCorrectAns;
+  int get numOfCorrectAns => _numOfCorrectAns;
   
   @override
   void onInit() {
 
     _animationController = AnimationController(
-      duration: Duration(seconds: 60), vsync: this);
+      duration: const Duration(seconds: 60), vsync: this);
     _animation  = Tween<double>(begin: 0, end: 1).animate(_animationController)
     ..addListener(() {
       update();
@@ -78,7 +78,7 @@ class QuestionController extends GetxController with SingleGetTickerProviderMixi
     _animationController.stop();
     update();
 
-    Future.delayed(Duration(seconds: 3), () {
+    Future.delayed(const Duration(seconds: 3), () {
       nextQuestion();
     });
 
@@ -88,7 +88,7 @@ class QuestionController extends GetxController with SingleGetTickerProviderMixi
     if (_questionNunber.value != _questions.length)
     {
       _isAnswered = false;
-      _pageController.nextPage(duration: Duration(milliseconds: 250), 
+      _pageController.nextPage(duration: const Duration(milliseconds: 250), 
       curve: Curves.ease);
 
       _animationController.reset();
@@ -98,7 +98,7 @@ class QuestionController extends GetxController with SingleGetTickerProviderMixi
     }
     
     else {
-      Get.to(ScoreScreen());
+      Get.to(const ScoreScreen());
     }
   }
 

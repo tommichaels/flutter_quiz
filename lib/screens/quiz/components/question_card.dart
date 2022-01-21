@@ -20,15 +20,15 @@ class QuestionCard extends StatelessWidget {
   Widget build(BuildContext context) {
   QuestionController _controller = Get.put(QuestionController());
     return Container(
-      margin: EdgeInsets.symmetric(horizontal: kDefaultPadding),
-      padding: EdgeInsets.all(kDefaultPadding),
+      margin: const EdgeInsets.symmetric(horizontal: kDefaultPadding),
+      padding: const EdgeInsets.all(kDefaultPadding),
       decoration: BoxDecoration(color: Colors.white, 
       borderRadius: BorderRadius.circular(25),
       ),
         child: Column(children: [Text(question.question, 
         style: Theme.of(context).textTheme.headline6!.copyWith(color: kBlackColor),
         ),
-        SizedBox(height: kDefaultPadding / 2,),
+        const SizedBox(height: kDefaultPadding / 2,),
         ...List.generate(
           question.options.length, (index) => Option(
             index: index, 
