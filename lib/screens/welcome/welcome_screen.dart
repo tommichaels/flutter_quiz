@@ -53,8 +53,8 @@ class WelcomeScreen extends StatelessWidget {
                       padding: const EdgeInsets.all(kDefaultPadding * .75),
                       decoration: const BoxDecoration(gradient: kPrimaryGradient, 
                       borderRadius: const BorderRadius.all(const Radius.circular(12),
-                      ),
-                      ),
+                            ),
+                          ),
                       child: Text("Start the Quiz!", 
                       style: Theme.of(context).textTheme.button!.copyWith(color: Colors.black),
                       ),
@@ -62,11 +62,11 @@ class WelcomeScreen extends StatelessWidget {
                   ),
                   const Spacer(flex: 2,),
                 ],
-                ),
-            ),
               ),
+            ),
+          ),
         ],
-        ),
+      ),
     );
   }
 }
