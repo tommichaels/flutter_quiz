@@ -56,12 +56,13 @@ class Option extends StatelessWidget {
             color: getTheRightColor() == 
             kGrayColor ? Colors.transparent : getTheRightColor(),
             borderRadius: BorderRadius.circular(50),
-            border: Border.all(color: getTheRightColor()),
+            border: Border.all(color: getTheRightColor()
+            ),
             ),
             child: getTheRightColor() == 
             kGrayColor ? null : Icon(getTheRightIcon(), size: 18,),
-            ),
-            ],
+                 ),
+              ],
             ),
           ),
         );
