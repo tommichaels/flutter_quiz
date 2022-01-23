@@ -35,8 +35,8 @@ class ProgressBar extends StatelessWidget {
                 decoration: BoxDecoration(
                   gradient: kPrimaryGradient,
                   borderRadius: BorderRadius.circular(50),
+                  ),
                 ),
-              ),
               ),
               Positioned.fill(
                 child: Padding(
