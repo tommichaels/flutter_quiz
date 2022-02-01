@@ -16,49 +16,67 @@ class Body extends StatelessWidget {
     QuestionController _questionController = Get.put(QuestionController());
     return Stack(
       children: [
-        (WebsafeSvg.asset("assets/icons/bg.svg",
-        width: MediaQuery.of(context).size.height,
-        fit: BoxFit.fill,)
-        ),
+        (WebsafeSvg.asset(
+          "assets/icons/bg.svg",
+          width: MediaQuery.of(context).size.height,
+          fit: BoxFit.fill,
+        )),
         SafeArea(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-            const Padding(
-              padding: EdgeInsets.symmetric(horizontal: kDefaultPadding),
-              child: ProgressBar(),
-            ),
-            const SizedBox(height: kDefaultPadding,),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: kDefaultPadding),
-              child: Obx(()=> Text.rich(TextSpan(
-                text: "Question ${_questionController.questionNumber}",
-                style: Theme.of(context).textTheme.headline4!.copyWith(color: kSecondaryColor),
-                children: [TextSpan(text: " of ${_questionController.questions.length}", 
-                style: Theme.of(context).textTheme.headline5!.copyWith(color: kSecondaryColor),
-                ),
-                ],
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: kDefaultPadding),
+                child: ProgressBar(),
               ),
-              )),
-            ),
-            const Divider(thickness: 1.5,),
-            const SizedBox(height: kDefaultPadding,),
-            Expanded(child: PageView.builder(
-              physics: const NeverScrollableScrollPhysics(),
-              controller: _questionController.pageController,
-              onPageChanged: _questionController.updateTheQnNum,
-              itemCount: _questionController.questions.length,
-              itemBuilder: (context, index) => QuestionCard(question: _questionController.questions[index],),
-            ),
-            ),
-          ],
+              const SizedBox(
+                height: kDefaultPadding,
+              ),
+              Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: kDefaultPadding),
+                child: Obx(
+                  () => Text.rich(
+                    TextSpan(
+                      text: "Question ${_questionController.questionNumber}",
+                      style: Theme.of(context)
+                          .textTheme
+                          .headline4!
+                          .copyWith(color: kSecondaryColor),
+                      children: [
+                        TextSpan(
+                          text: " of ${_questionController.questions.length}",
+                          style: Theme.of(context)
+                              .textTheme
+                              .headline5!
+                              .copyWith(color: kSecondaryColor),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+              const Divider(
+                thickness: 1.5,
+              ),
+              const SizedBox(
+                height: kDefaultPadding,
+              ),
+              Expanded(
+                child: PageView.builder(
+                  physics: const NeverScrollableScrollPhysics(),
+                  controller: _questionController.pageController,
+                  onPageChanged: _questionController.updateTheQnNum,
+                  itemCount: _questionController.questions.length,
+                  itemBuilder: (context, index) => QuestionCard(
+                    question: _questionController.questions[index],
+                  ),
+                ),
+              ),
+            ],
           ),
         )
       ],
-      );
+    );
   }
 }
-
-
-
-
