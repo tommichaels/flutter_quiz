@@ -16,8 +16,7 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Quiz',
       debugShowCheckedModeBanner: false,
       theme: ThemeData.dark(),
-      home: WelcomeScreen(),
+      home: const WelcomeScreen(),
     );
   }
 }
-
